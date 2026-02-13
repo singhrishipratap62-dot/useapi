@@ -1,0 +1,212 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --text: #18202a;
+  --muted: #5f6b7a;
+  --border: #d8dee6;
+  --accent: #2f6fed;
+  --accent-hover: #2559bc;
+  --danger: #b42318;
+  --success: #067647;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  max-width: 900px;
+  margin: 24px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: #fbfcfe;
+}
+
+.tab-button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  background: #f3f7ff;
+}
+
+.content-area {
+  padding: 20px;
+  display: flex;
+  flex: 1;
+}
+
+.panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.panel-description {
+  margin: 0;
+  color: var(--muted);
+}
+
+.settings-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 560px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.primary-button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-button:hover:enabled {
+  background: var(--accent-hover);
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.feedback {
+  min-height: 20px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.feedback.success {
+  color: var(--success);
+}
+
+.feedback.error {
+  color: var(--danger);
+}
+
+.chat-history {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fafcff;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 350px;
+  max-height: 60vh;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  margin-left: auto;
+  background: #dce9ff;
+}
+
+.message.assistant {
+  margin-right: auto;
+  background: #eef1f6;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .content-area {
+    padding: 14px;
+  }
+
+  .message {
+    max-width: 92%;
+  }
+}

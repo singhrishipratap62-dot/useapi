@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Provider LLM Chat</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-nav" role="tablist" aria-label="Primary tabs">
+        <button id="tab-settings" class="tab-button active" role="tab" aria-controls="panel-settings" aria-selected="true">Settings</button>
+        <button id="tab-chat" class="tab-button" role="tab" aria-controls="panel-chat" aria-selected="false">Chat</button>
+      </header>
+
+      <main class="content-area">
+        <section id="panel-settings" class="panel" role="tabpanel" aria-labelledby="tab-settings">
+          <h1>Configuration</h1>
+          <p class="panel-description">Set your provider and API key for this session.</p>
+
+          <form id="settings-form" class="settings-form" novalidate>
+            <label for="provider-select">Provider</label>
+            <select id="provider-select" required>
+              <option value="claude">Claude</option>
+              <option value="openai">OpenAI</option>
+            </select>
+
+            <label for="api-key-input">API Key</label>
+            <input id="api-key-input" type="password" placeholder="Enter API key" autocomplete="off" required />
+
+            <label for="model-input">Model (optional)</label>
+            <input id="model-input" type="text" placeholder="Use default model for selected provider" autocomplete="off" />
+
+            <button id="save-config-button" type="submit" class="primary-button">Save Configuration</button>
+          </form>
+
+          <p id="settings-feedback" class="feedback" aria-live="polite"></p>
+        </section>
+
+        <section id="panel-chat" class="panel hidden" role="tabpanel" aria-labelledby="tab-chat">
+          <h1>Chat</h1>
+          <div id="chat-history" class="chat-history" aria-live="polite"></div>
+
+          <form id="chat-form" class="chat-form" novalidate>
+            <textarea id="chat-input" rows="3" placeholder="Type your message..." required></textarea>
+            <div class="chat-actions">
+              <span id="chat-status" class="chat-status" aria-live="polite"></span>
+              <button id="send-button" type="submit" class="primary-button" disabled>Send</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
